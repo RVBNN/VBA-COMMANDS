@@ -40,8 +40,12 @@ End Sub
 ```
 
 ## INSERT FORMULAS IN CELLS
-```
+```    
     Range("H2:H" & ultimo).FormulaLocal = "=I2" 'Lo que sea que tenga en la columna I se lo pone a la columna H
+
+    ' If you're going to use a dynamic range, then you MUST use the Set syntax -------------------------------
+    ' Set myRange = ws.Range(Inicio, Fin)
+    ' myRange.FormulaLocal = "=I2"
 ```
 
 ## GET COLUMN NUMBER GIVEN THE NAME OF THE COLUMN
