@@ -1,6 +1,17 @@
 # VBA-COMMANDS
 My most frequent used commands in VBA
 
+## TURN OFF FLASHES AND AUTOMATIC CALCULATIONS
+```
+    Application.ScreenUpdating = False 'Turn off Flashes
+    Application.Calculation = xlCalculationManual 'Turn off automatic calculations
+
+    ' Turn them back on
+    'Application.ScreenUpdating = True ' Flashes
+    'Application.Calculation = xlCalculationAutomatic 'Automatic calculations
+```
+
+
 ## GET FIRST & LAST USED ROW IN A WORKSHEET
 ```
 Dim datos_ws as Worksheets
