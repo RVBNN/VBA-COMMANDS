@@ -13,6 +13,12 @@ R2 = datos_ws.Cells(R1, "Q").End(xlUp).Row   'Inicio serie
 lastUsedColumn = datos_ws.Cells(1, datos_ws.Columns.Count).End(xlToLeft).Column
 
 ```
+
+## ONLY VISIBLE ROWS
+```
+Selection.SpecialCells(xlCellTypeVisible).Select
+```
+
 ## GET TABLE RANGE
 ```
 Sub table_range()
@@ -33,7 +39,10 @@ Sub table_range()
 End Sub
 ```
 
-
+## INSERT FORMULAS IN CELLS
+```
+    Range("H2:H" & ultimo).FormulaLocal = "=I2" 'Lo que sea que tenga en la columna I se lo pone a la columna H
+```
 
 ## GET COLUMN NUMBER GIVEN THE NAME OF THE COLUMN
 ```
