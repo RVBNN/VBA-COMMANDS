@@ -78,3 +78,77 @@ Sub ExampleUsage()
     End If
 End Sub
 ```
+
+## WORD DOCUMENT MANIPULATION WITH EXCEL MACROS (CREATION, ALIGNMENT, STYLE)
+```
+    Sub CreateWordDoc()
+    Dim wdApp As Object
+    Dim wdDoc As Object
+    Dim wdRange As Object
+
+    ' Create a new instance of Word application
+    Set wdApp = CreateObject("Word.Application")
+    
+    ' Make Word visible
+    wdApp.Visible = True
+    
+    ' Add a new document
+    Set wdDoc = wdApp.Documents.Add
+    
+    ' Insert and format text
+    With wdDoc
+        ' Centered text
+        Set wdRange = .Range
+        wdRange.Text = "This is centered text."
+        wdRange.ParagraphFormat.Alignment = 1 ' wdAlignParagraphCenter
+        wdRange.InsertParagraphAfter
+        
+        ' Right aligned text
+        Set wdRange = .Paragraphs(.Paragraphs.Count).Range
+        wdRange.Text = "This is right aligned text."
+        wdRange.ParagraphFormat.Alignment = 3 ' wdAlignParagraphRight
+        wdRange.InsertParagraphAfter
+        
+        ' Justified text
+        Set wdRange = .Paragraphs(.Paragraphs.Count).Range
+        wdRange.Text = "This is justified text. " & _
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " & _
+            "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio."
+        wdRange.ParagraphFormat.Alignment = 3 ' wdAlignParagraphJustify
+        wdRange.InsertParagraphAfter
+        
+        ' Left aligned text
+        Set wdRange = .Paragraphs(.Paragraphs.Count).Range
+        wdRange.Text = "This is left aligned text."
+        wdRange.ParagraphFormat.Alignment = 0 ' wdAlignParagraphLeft
+        wdRange.InsertParagraphAfter
+        
+        ' Bold text
+        Set wdRange = .Paragraphs(.Paragraphs.Count).Range
+        wdRange.Text = "This is bold text."
+        wdRange.Font.Bold = True
+        wdRange.InsertParagraphAfter
+        
+        ' Italic text
+        Set wdRange = .Paragraphs(.Paragraphs.Count).Range
+        wdRange.Text = "This is italic text."
+        wdRange.Font.Italic = True
+        wdRange.InsertParagraphAfter
+        
+        ' Hyperlink
+        Set wdRange = .Paragraphs(.Paragraphs.Count).Range
+        wdRange.Text = "This is a hyperlink."
+        .Hyperlinks.Add Anchor:=wdRange, Address:="http://www.example.com", TextToDisplay:="This is a hyperlink"
+        wdRange.InsertParagraphAfter
+    End With
+    
+    ' Clean up
+    Set wdRange = Nothing
+    Set wdDoc = Nothing
+    Set wdApp = Nothing
+End Sub
+```
+
+
+
+
